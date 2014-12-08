@@ -1,6 +1,8 @@
 <?php
 
 // Requirements
+require_once 'datastore_connect/config.php';
+require_once 'datastore_connect/DatastoreService.php';
 require_once("class/AdvertsService.class.php");
 require_once("class/AdModel.class.php");
 

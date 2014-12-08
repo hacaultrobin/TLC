@@ -1,0 +1,20 @@
+application: tlc-advboard-hacault-lhomme
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /
+  script: index.php
+- url: /create_ads
+  script: create_ads.php
+- url: /save_ads
+  script: save_ads.php
+- url: /delete_ad
+  script: delete_ad.php
+- url: /css/style.css 
+  static_files: css/style.css
+  upload: css/style.css
+- url: /css/create_ads.css 
+  static_files: css/create_ads.css
+  upload: css/create_ads.css

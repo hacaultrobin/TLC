@@ -1,0 +1,29 @@
+#fields {
+	background-color: #efefef;
+	border-bottom: 1px solid #CCC;
+}
+
+.field {
+	border-top: 1px solid #CCC;
+	padding: 5px;
+}
+
+#buttons {
+	text-align: center;
+	margin: 5px;
+}
+
+input[type="text"], input[type="number"] {
+	padding: 4px;
+	border: solid 1px gainsboro;
+	-webkit-transition: box-shadow 0.3s, border 0.3s;
+	-moz-transition: box-shadow 0.3s, border 0.3s;
+	-o-transition: box-shadow 0.3s, border 0.3s;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+input[type="text"]:focus, input[type="text"].focus, input[type="number"]:focus, input[type="number"].focus {
+	border: solid 1px #707070;
+	-webkit-box-shadow: 0 0 5px 1px #969696;
+	-moz-box-shadow: 0 0 5px 1px #969696;
+	box-shadow: 0 0 5px 1px #969696;
+}

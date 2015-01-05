@@ -21,11 +21,11 @@
 		</section>
 		<script>
 			function addField() {
-				document.getElementById("fields").innerHTML = document.getElementById("fields").innerHTML+
-				"<div class=\"field\">"+
-				"\t<label for=\"title\">Titre&nbsp;</label><input type=\"text\" name=\"title[]\" />"+
-				"\t<label for=\"price\">Prix&nbsp;</label><input type=\"number\" name=\"price[]\" />"+
-				"</div>";
+				var div = document.createElement("div");
+				div.className = "field";
+				div.innerHTML = "<label for=\"title\">Titre&nbsp;</label><input type=\"text\" name=\"title[]\" />"+
+								"<label for=\"price\">Prix&nbsp;</label><input type=\"number\" name=\"price[]\" />";
+				document.getElementById("fields").appendChild(div);
 			}
 		</script>
 	</body>

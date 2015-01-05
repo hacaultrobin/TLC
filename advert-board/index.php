@@ -13,21 +13,26 @@ $adsService = new AdvertsService();
 	</head>
 	<body>
 		<header>
-			<form>
-				<span>Titre</span>
-				<input id="searchText" type="text"/>
-				<span>Prix min</span>
-				<input id="minPrice" type="number"/>
-				<span>Prix max</span>
-				<input id="maxPrice" type="number"/>
-				<input type="button" value="Go"/>
+			<form action="/" method="POST">
+				<label for="searchText">Titre</label><input id="searchText" name="searchText" type="text"/>
+				<label for="minPrice">Prix min</label><input id="minPrice" name="minPrice" type="number"/>
+				<label for="maxPrice">Prix max</label><input id="maxPrice" name="maxPrice" type="number"/>
+				<input type="submit" value="Go"/>
 			</form>
 			<a id="create_ads_link" href="create_ads"><button>Cr&eacute;er</button></a>
 		</header>
 		<section>
 			<ul>
 				<?php
-				foreach ($adsService->getAllAds() as $ad) {
+				if (isset($_POST['searchText']) || isset($_POST['minPrice']) || isset($_POST['maxPrice'])) {
+					$minPrice = (is_numeric($_POST['minPrice']) ? $_POST['minPrice'] : 0);
+					$maxPrice = (is_numeric($_POST['maxPrice']) ? $_POST['maxPrice'] : -1);
+					$ads = $adsService->searchAd($_POST['searchText'], $minPrice, $maxPrice);
+					echo "<h4>$ads</h4>";
+				} else {
+					$ads = $adsService->getAllAds();
+				}
+				foreach ($ads as $ad) {
 					echo 
 					"<li>" .
 							"<span>" . $ad->getTitle() . "</span>" .

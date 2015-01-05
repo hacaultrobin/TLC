@@ -17,6 +17,10 @@ class AdvertsService {
 		return AdModel::all();
 	}
 	
+	function searchAd($title, $minPrice, $maxPrice) {
+		return "Not implemented";
+	}
+	
 	function deleteAd($id) {
 		$ad_model_fetched = AdModel::fetch_by_name($id);
 		if (sizeof($ad_model_fetched) > 0) {
